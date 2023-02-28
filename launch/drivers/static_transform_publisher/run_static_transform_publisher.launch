@@ -1,0 +1,9 @@
+<launch>
+  <arg name="robot_id" value="$(optenv ROBOT_ID unnamed_robot)"/>
+
+  <group ns="$(arg robot_id)">
+    <node pkg="tf" type="static_transform_publisher"
+        name="laser_broadcaster"
+        args="0 0 0.65 0 0 0 $(arg robot_id)/base_footprint $(arg robot_id)/laser 100"/>
+  </group>
+</launch>

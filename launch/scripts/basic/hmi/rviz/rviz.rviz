@@ -56,9 +56,9 @@ Visualization Manager:
       Frame Timeout: 15
       Frames:
         All Enabled: true
-        base_footprint:
+        sdpo_r3/base_footprint:
           Value: true
-        odom:
+        sdpo_r3/odom:
           Value: true
       Marker Alpha: 1
       Marker Scale: 1
@@ -67,8 +67,8 @@ Visualization Manager:
       Show Axes: true
       Show Names: true
       Tree:
-        odom:
-          base_footprint:
+        sdpo_r3/odom:
+          sdpo_r3/base_footprint:
             {}
       Update Interval: 0
       Value: true
@@ -76,7 +76,7 @@ Visualization Manager:
   Global Options:
     Background Color: 48; 48; 48
     Default Light: true
-    Fixed Frame: odom
+    Fixed Frame: sdpo_r3/odom
     Frame Rate: 30
   Name: root
   Tools:

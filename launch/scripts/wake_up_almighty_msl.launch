@@ -5,6 +5,9 @@
   <!-- Robot Localization Abstraction Layer -->
   <include file="$(dirname)/run_localization.launch"/>
 
+  <!-- Robot Mapping Abstraction Layer -->
+  <include file="$(dirname)/run_mapping.launch"/>
+
   <!-- Human-Machine Interface (HMI) Abstraction Layer -->
   <include file="$(dirname)/run_hmi.launch"/>
 </launch>

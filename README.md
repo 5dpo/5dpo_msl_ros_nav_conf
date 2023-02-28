@@ -1,6 +1,6 @@
 # 5dpo_msl_ros_nav_conf
 
-**Version 1.0.0**
+**Version 2.0.0**
 
 This repository implements the launch files required for the 5DPO Navigation
 Stack on the 5DPO MSL three-wheeled omnidirectional robot. The system
@@ -12,10 +12,14 @@ your environment variables.
 
 - ROS package creation (`CMakeLists.txt`, `package.xml`)
 - `basic` configuration
+- `slam0` configuration ([SLAM Toolbox](https://wiki.ros.org/slam_toolbox))
 
 **The next version will add these features:**
 
-- TBD
+- `feup0` configuration (INESC TEC Robotics Navigation Stack)
+- `sim0` configuration (Gazebo-based Simulation)
+- `slam1` configuration ([Hector SLAM](https://wiki.ros.org/hector_mapping))
+- `slam2` configuration ([GMapping](https://wiki.ros.org/gmapping))
 
 ## ROS
 
@@ -31,6 +35,9 @@ your environment variables.
 - [sdpo_driver_omnijoy](https://github.com/5dpo/5dpo_driver_omnijoy)
 - [sdpo_msl_ros_driver](https://github.com/5dpo/5dpo_msl_ros_driver)
 - [sdpo_ros_odom](https://github.com/5dpo/5dpo_ros_odom)
+- [slam_toolbox](https://wiki.ros.org/slam_toolbox)
+- [tf](https://wiki.ros.org/tf)
+- [urg_node](https://wiki.ros.org/urg_node)
 
 ## Usage
 
@@ -54,6 +61,18 @@ export ROBOT_CONF=<configuration>   # (default: basic)
   - rviz
 - Localization
   - sdpo_ros_odom
+
+**`slam0`**
+
+- Drivers
+  - sdpo_driver_omnijoy
+  - sdpo_msl_ros_driver
+  - static_transform_publisher
+  - urg_node
+- Human-Machine Interface (HMI)
+  - rviz
+- Mapping
+  - slam_toolbox
 
 ### Compilation
 
