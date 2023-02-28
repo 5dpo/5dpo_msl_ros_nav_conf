@@ -1,0 +1,13 @@
+<launch>
+  <arg name="robot_id" value="$(optenv ROBOT_ID unnamed_robot)"/>
+  <arg name="scan_topic" default="scan"/>
+
+  <group ns="$(arg robot_id)">
+    <node pkg="hector_mapping" type="hector_mapping" name="hector_mapping"
+        output="screen">
+      <remap from="/map" to="map"/>
+      <rosparam command="load" subst_value="true"
+          file="$(dirname)/hector_mapping.yaml"/>
+    </node>
+  </group>
+</launch>
