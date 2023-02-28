@@ -1,0 +1,3 @@
+<launch>
+  <include file="$(dirname)/../../mapping/hector_mapping/run_hector_mapping.launch"/>
+</launch>
