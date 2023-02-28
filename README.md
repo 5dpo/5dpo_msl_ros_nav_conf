@@ -15,7 +15,11 @@ your environment variables.
 
 **The next version will add these features:**
 
-- TBD
+- `slam0` configuration ([SLAM Toolbox](https://wiki.ros.org/slam_toolbox))
+- `feup0` configuration (INESC TEC Robotics Navigation Stack)
+- `sim0` configuration (Gazebo-based Simulation)
+- `slam1` configuration ([Hector SLAM](https://wiki.ros.org/hector_mapping))
+- `slam2` configuration ([GMapping](https://wiki.ros.org/gmapping))
 
 ## ROS
 
