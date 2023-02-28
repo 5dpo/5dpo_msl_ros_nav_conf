@@ -35,6 +35,7 @@ your environment variables.
 - [sdpo_driver_omnijoy](https://github.com/5dpo/5dpo_driver_omnijoy)
 - [sdpo_msl_ros_driver](https://github.com/5dpo/5dpo_msl_ros_driver)
 - [sdpo_ros_odom](https://github.com/5dpo/5dpo_ros_odom)
+- [slam_toolbox](https://wiki.ros.org/slam_toolbox)
 - [tf](https://wiki.ros.org/tf)
 - [urg_node](https://wiki.ros.org/urg_node)
 
@@ -60,6 +61,18 @@ export ROBOT_CONF=<configuration>   # (default: basic)
   - rviz
 - Localization
   - sdpo_ros_odom
+
+**`slam0`**
+
+- Drivers
+  - sdpo_driver_omnijoy
+  - sdpo_msl_ros_driver
+  - static_transform_publisher
+  - urg_node
+- Human-Machine Interface (HMI)
+  - rviz
+- Mapping
+  - slam_toolbox
 
 ### Compilation
 

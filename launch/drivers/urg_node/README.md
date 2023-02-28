@@ -1,4 +1,4 @@
-# urg_node
+# [urg_node](https://wiki.ros.org/urg_node)
 
 ROS node to provide access to SCIP 2.0-compliant Hokuyo laser range finders
 (including 04LX), fully REP-138 compliant, and compatible with

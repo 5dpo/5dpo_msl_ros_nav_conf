@@ -1,0 +1,13 @@
+<launch>
+  <arg name="robot_id" value="$(optenv ROBOT_ID unnamed_robot)"/>
+  <arg name="scan_topic" default="scan"/>
+
+  <group ns="$(arg robot_id)">
+    <node pkg="slam_toolbox" type="sync_slam_toolbox_node" name="slam_toolbox"
+        output="screen">
+      <remap from="/map" to="map"/>
+      <rosparam command="load" subst_value="true"
+          file="$(dirname)/slam_toolbox.yaml"/>
+    </node>
+  </group>
+</launch>
