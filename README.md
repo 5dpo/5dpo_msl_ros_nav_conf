@@ -1,6 +1,6 @@
 # 5dpo_msl_ros_nav_conf
 
-**Version 0.0.0**
+**Version 1.0.0**
 
 This repository implements the launch files required for the 5DPO Navigation
 Stack on the 5DPO MSL three-wheeled omnidirectional robot. The system
@@ -10,12 +10,12 @@ your environment variables.
 
 **With this version, it is possible to do:**
 
-- TBD
+- ROS package creation (`CMakeLists.txt`, `package.xml`)
+- `basic` configuration
 
 **The next version will add these features:**
 
-- ROS package creation (`CMakeLists.txt`, `package.xml`)
-- `basic` configuration
+- TBD
 
 ## ROS
 
