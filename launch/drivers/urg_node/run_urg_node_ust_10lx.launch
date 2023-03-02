@@ -8,7 +8,7 @@
       <param name="serial_port" value=""/>
       <param name="serial_baud" value=""/>
       <param name="frame_id" value="$(arg robot_id)/laser"/>
-      <param name="calibrate_time" value="true"/>
+      <param name="calibrate_time" value="false"/>
       <param name="publish_intensity" value="false"/>
       <param name="publish_multiecho" value="false"/>
       <param name="angle_min" value="-2.2689"/>
