@@ -118,7 +118,7 @@ catkin build
 ### Launch
 
 ```sh
-roslaunch sdpo_msl_ros_nav_conf wake_up_almighty_q2.launch
+roslaunch sdpo_msl_ros_nav_conf wake_up_almighty_msl.launch
 ```
 
 ## Contacts
