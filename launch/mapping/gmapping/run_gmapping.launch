@@ -1,0 +1,12 @@
+<launch>
+  <arg name="robot_id" value="$(optenv ROBOT_ID unnamed_robot)"/>
+
+  <group ns="$(arg robot_id)">
+    <node pkg="gmapping" type="slam_gmapping" name="slam_gmapping"
+        output="screen">
+      <remap from="/map" to="map"/>
+      <rosparam command="load" subst_value="true"
+          file="$(dirname)/gmapping.yaml"/>
+    </node>
+  </group>
+</launch>
