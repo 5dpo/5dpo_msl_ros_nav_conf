@@ -1,0 +1,10 @@
+<launch>
+  <arg name="robot_id" value="$(optenv ROBOT_ID unnamed_robot)"/>
+  <arg name="file_name" default="$(env PWD)/map"/>
+
+  <group ns="$(arg robot_id)">
+    <node pkg="map_server" type="map_saver" name="map_saver"
+        args="-f $(arg file_name)" clear_params="true"
+        output="screen"/>
+  </group>
+</launch>

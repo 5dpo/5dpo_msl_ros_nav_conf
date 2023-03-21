@@ -1,0 +1,14 @@
+<launch>
+  <arg name="robot_id" value="$(optenv ROBOT_ID unnamed_robot)"/>
+  <arg name="file_name" default="$(env PWD)/map.yaml"/>
+  <arg name="ns" default="nn0"/>
+  <arg name="frame_id" default="$(arg robot_id)/map/$(arg ns)"/>
+
+  <group ns="$(arg robot_id)/$(arg ns)">
+    <node pkg="map_server" type="map_server" name="map_server"
+        args="$(arg file_name)" clear_params="true"
+        output="$(optenv ROBOT_OUTPUT screen)">
+      <param name="frame_id" value="$(arg frame_id)"/>
+    </node>
+  </group>
+</launch>
