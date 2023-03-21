@@ -1,0 +1,66 @@
+ControlCyclePeriod: 50
+OdomFrameId: $(arg robot_id)/odom
+BaseFrameId: $(arg robot_id)/base_footprint
+FrontLaserFrameId: base_laser_link_0
+BackLaserFrameId: base_laser_link_1
+SecurityFrameId: base_footprint
+TransformTolerance: 0.5
+DirectionWheelFrameId: direction_wheel
+UseOdomData: false
+DisableSecurity: true
+LaserScanObstaclesTimeOut: -1.0
+TractionOperationMode: Omnidirectional
+MaxAccelerationLinear: 1.0
+MaxAccelerationLinearBreak: -1.0
+MaxAccelerationAngular: 180.0
+MaxAccelerationAngularBreak: -1.0
+MaxLinearSpeed: -1.0
+MaxAngularSpeed: -1.0
+
+MaxVelocityForward: 0.3
+MaxVelocityBackward: 0.3
+MaxDistToVelocityBackward: 0.5
+MaxAngularOutput: 45.0
+GoToPositionContDistErrK: 3.0
+GoToPositionContAngErrK: 2.0
+GoToPositionContAtPositionMaxError: 0.05
+
+GoToPoseContDistErrK: 1.5
+GoToPoseContAngErrK: 2.0
+GoToPoseContThetaErrK: 1.0
+GoToPoseContAtPoseMaxErrorPos: 0.15
+GoToPoseContAtPoseMaxErrorOri: 2.0
+GoToPoseContMaxAngularOutputFinalRotationDifferential: 45.0
+DirWheelPosMaxError: 2.0
+CheeckBadDirPositionEnable: true
+CheeckBadDirPositionMaxAngError: 3.0
+
+FollowPathContPosMaxError: 0.005
+FollowPathContKDistPath: 3.0
+FollowPathContKIDistPath: 0.0
+FollowPathContKAngThetaPath: 3.0
+FollowPathContKIAngThetaPath: 0.0
+FollowPathContKdistEnd: 1.5
+FollowPathContMaxErrorDist: 0.3
+FollowPathContMaxErrorAng: 45.0
+FollowPathFeedforwardEnable: true
+FollowPathAlineWheelEnable: true
+
+FollowPathContMaxErrorAngEnd: 5.0
+
+CollisionAvoidanceMaxX: 0.0
+CollisionAvoidanceMinX: 0.0
+CollisionAvoidanceMaxY: 0.0
+CollisionAvoidanceMinY: 0.0
+MinPointsNumber: 3
+CollisionAvoidanceMinVelocity: 0.0
+CollisionAvoidanceTimeDelay: 3.0
+SecurityKLinear: 0.9
+SecurityKLinearBack: 0.9
+SecurityKAngular: 0.05
+MinFrontSecurityDist: 0.1
+MinBackSecurityDist: 0.1
+MinLateralSecurityDist: 0.18
+DistanceFromRobotBaseToFront: 0.58
+RobotLength: 1.13
+RobotWidth: 0.63
