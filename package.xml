@@ -44,6 +44,7 @@
   <buildtool_depend>catkin</buildtool_depend>
   <exec_depend>gmapping</exec_depend>
   <exec_depend>hector_mapping</exec_depend>
+  <exec_depend>map_server</exec_depend>
   <exec_depend>rviz</exec_depend>
   <exec_depend>sdpo_driver_omnijoy</exec_depend>
   <exec_depend>sdpo_msl_ros_driver</exec_depend>
