@@ -1,0 +1,35 @@
+<launch>
+	<arg name="robot_id" default="$(optenv ROBOT_ID unnamed_robot)"/>
+	<arg name="ns" default="nn0"/>
+	<arg name="empty_ns" default="false"/>
+	<arg name="IdsOffSet" default="1"/>
+	<arg name="name_sux" default=""/>
+	<arg name="BaseFrameId" default="base_link"/>
+	<arg name="PathTopic" default="PathNoStackUp"/>
+
+	<arg name="GlobalFrameId" value="map/$(arg ns)" unless="$(arg empty_ns)"/>
+	<arg name="GlobalFrameId" value="map" if="$(arg empty_ns)"/>
+
+	<arg name="TrajectoryNamespace"
+	    value="/$(arg robot_id)/$(arg ns)/trajectory_data$(arg name_sux)"
+	    unless="$(arg empty_ns)"/>
+	<arg name="TrajectoryNamespace"
+	    value="/$(arg robot_id)/trajectory_data$(arg name_sux)"
+	    if="$(arg empty_ns)"/>
+
+	<arg name="node_name_space" value="$(arg robot_id)/$(arg ns)"
+	    unless="$(arg empty_ns)"/>
+	<arg name="node_name_space" value="$(arg robot_id)"
+	    if="$(arg empty_ns)"/>
+
+	<group ns="$(arg node_name_space)">
+		<node pkg="parametric_trajectories_editor"
+		    type="parametric_trajectories_editor"
+		    name="parametric_trajectories_editor_node$(arg name_sux)"
+		    clear_params="true" output="$(optenv ROBOT_OUTPUT screen)">
+			<remap from="Path" to="/$(arg robot_id)/$(arg PathTopic)"/>
+			<rosparam command="load" subst_value="true"
+			    file="$(dirname)/parametric_trajectories_editor.yaml"/>
+		</node>
+	</group>
+</launch>

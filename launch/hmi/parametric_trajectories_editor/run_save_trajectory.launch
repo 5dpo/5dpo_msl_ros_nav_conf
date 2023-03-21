@@ -1,0 +1,11 @@
+<launch>
+  <arg name="robot_id" default="$(optenv ROBOT_ID unnamed_robot)"/>
+  <arg name="ns"/>
+  <arg name="file_name" default="$(env PWD)/trajectory_data"/>
+  <arg name="name_sux" default="" />
+
+  <group ns="$(arg robot_id)">
+    <rosparam command="dump" file="$(arg file_name)$(arg name_sux).yaml"
+        ns="$(arg ns)/trajectory_data$(arg name_sux)"/>
+  </group>
+</launch>
