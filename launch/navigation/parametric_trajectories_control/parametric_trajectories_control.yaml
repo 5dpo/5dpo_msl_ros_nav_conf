@@ -53,13 +53,13 @@ CollisionAvoidanceMinX: 0.0
 CollisionAvoidanceMaxY: 0.0
 CollisionAvoidanceMinY: 0.0
 MinPointsNumber: 3
-CollisionAvoidanceMinVelocity: 0.0
-CollisionAvoidanceTimeDelay: 3.0
+CollisionAvoidanceMinVelocity: 0.0  # below this velocity, security turns off
+CollisionAvoidanceTimeDelay: 3.0    # delay to start moving again
 SecurityKLinear: 0.9
 SecurityKLinearBack: 0.9
 SecurityKAngular: 0.05
-MinFrontSecurityDist: 0.1
-MinBackSecurityDist: 0.1
+MinFrontSecurityDist: 0.1   # security if stopped
+MinBackSecurityDist: 0.1    # security if stopped
 MinLateralSecurityDist: 0.18
 DistanceFromRobotBaseToFront: 0.58
 RobotLength: 1.13
