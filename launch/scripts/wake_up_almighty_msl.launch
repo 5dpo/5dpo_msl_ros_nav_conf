@@ -8,6 +8,9 @@
   <!-- Robot Mapping Abstraction Layer -->
   <include file="$(dirname)/run_mapping.launch"/>
 
+  <!-- Robot Navigation Abstraction Layer -->
+  <include file="$(dirname)/run_navigation.launch"/>
+
   <!-- Human-Machine Interface (HMI) Abstraction Layer -->
   <include file="$(dirname)/run_hmi.launch"/>
 </launch>
