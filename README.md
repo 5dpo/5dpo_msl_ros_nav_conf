@@ -1,6 +1,6 @@
 # 5dpo_msl_ros_nav_conf
 
-**Version 2.2.0**
+**Version 2.3.0**
 
 This repository implements the launch files required for the 5DPO Navigation
 Stack on the 5DPO MSL three-wheeled omnidirectional robot. The system
@@ -119,13 +119,13 @@ export ROBOT_CONF=<configuration>   # (default: basic)
   - static_transform_publisher
   - urg_node
 - Human-Machine Interface (HMI)
+  - parametric_trajectories_editor (_INESC TEC_)
   - rviz
 - Localization
   - sdpo_ros_odom
   - localization_perfect_match (_INESC TEC_)
 - Mapping
   - parametric_trajectories_control (_INESC TEC_)
-  - parametric_trajectories_editor (_INESC TEC_)
   - map_server
 
 
