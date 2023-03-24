@@ -5,7 +5,6 @@ Panels:
     Property Tree Widget:
       Expanded:
         - /TF1/Tree1
-        - /TF1/Tree1/unnamed_robot/odom1
       Splitter Ratio: 0.5411764979362488
     Tree Height: 734
   - Class: rviz/Selection
@@ -116,6 +115,15 @@ Visualization Manager:
       Unreliable: false
       Use Fixed Frame: true
       Use rainbow: true
+      Value: true
+    - Class: rviz/InteractiveMarkers
+      Enable Transparency: true
+      Enabled: true
+      Name: InteractiveMarkers
+      Show Axes: false
+      Show Descriptions: true
+      Show Visual Aids: false
+      Update Topic: /unnamed_robot/nn0/parametric_trajectories_editor_node/update
       Value: true
   Enabled: true
   Global Options:
