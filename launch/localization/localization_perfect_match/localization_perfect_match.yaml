@@ -1,0 +1,36 @@
+#GlobalFrameId: map_nn
+OdomFrameId: $(arg robot_id)/odom
+BaseFrameId: $(arg robot_id)/base_footprint
+write_pose_result_to_tf: true
+invert_tf: true
+#MapFilePatch: ""
+#MapResolution: 0.04
+initial_position_sd: 0.5
+initial_orientation_sd: 15.0
+#initial_pose_x: 0.0
+#initial_pose_y: 0.0
+#initial_pose_ori: 0.0
+#get_initial_pose_service_name: "/$(arg robot_id)/pose_tf_disk_saver_nn/get_pose_save_in_disk"
+Lc: 1.0
+DeltaUpdateInitPosition: 0.01
+DeltaUpdateInitOrientation: 3.0
+NumIterationMax: 100
+OptimizationStopTranslation: 0.0001
+OptimizationStopRotation: 0.05
+SensorsKErrorXY: 5.0
+SensorsKErrorTheta: 200.0
+DriftTranslationDeltaD: 1.0
+DriftTranslationDeltaRot: 0.003
+DriftRotationDeltaRot: 5.0
+StateMinVarXY: 0.01
+StateMinVarTheta: 0.001
+OperationMode: 'SensorsOdomFusion'
+MaxErrordistFilterEnabled1: true
+LaserFilterMaxDist1: 0.3
+MaxErrordistFilterEnabled2: true
+LaserFilterMaxDist2: 0.03
+WeightenMeasureDistEnable: true
+FinalRefinementEnable: true
+LaserMeasuresNum: 720
+MinPercentValideSensorData: 0.0
+LocOffFlagInitialValue: $(arg LocOffFlagInitialValue)

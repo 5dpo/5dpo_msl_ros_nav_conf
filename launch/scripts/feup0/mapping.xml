@@ -1,0 +1,6 @@
+<launch>
+  <include file="$(dirname)/../../mapping/map_server/run_map_server.launch">
+    <arg name="ns" value="nn0"/>
+    <arg name="file_name" value="$(dirname)/nn0/map.yaml"/>
+  </include>
+</launch>

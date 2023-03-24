@@ -1,0 +1,14 @@
+<launch>
+  <include file="$(dirname)/../../hmi/parametric_trajectories_editor/run_load_trajectory.launch">
+    <arg name="ns" value="nn0"/>
+    <arg name="file_name" value="$(dirname)/nn0/trajectory_data.yaml"/>
+    <arg name="name_sux" value=""/>
+  </include>
+
+  <include file="$(dirname)/../../hmi/parametric_trajectories_editor/run_parametric_trajectories_editor.launch">
+    <arg name="ns" value="nn0"/>
+    <arg name="IdsOffSet" value="1"/>
+  </include>
+
+  <include file="$(dirname)/../../navigation/parametric_trajectories_control/run_parametric_trajectories_control.launch"/>
+</launch>

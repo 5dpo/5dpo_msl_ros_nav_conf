@@ -1,0 +1,65 @@
+<launch>
+	<arg name="robot_id" default="$(optenv ROBOT_ID unnamed_robot)"/>
+  <arg name="conf" value="$(optenv ROBOT_CONF basic)"/>
+	<arg name="ns" default="nn0"/>
+	<arg name="use_pose_tf_disk_saver" default="false"/>
+	<arg name="use_pose_parameter_server" default="false"/>
+	<arg name="scan_topic" default="scan_topic_undefined"/>
+	<arg name="scan_point_cloud2_topic" default="scan_point_cloud2_topic_undefined"/>
+	<arg name="gui" default="$(optenv ROBOT_PM_GUI false)"/>
+	<arg name="initial_pose_file"
+	    default="$(dirname)/../../scripts/$(arg conf)/$(arg ns)/initial_pose.yaml"/>
+	<arg name="LocOffFlagInitialValue" default="$false"/>
+
+	<group ns="$(arg robot_id)/$(arg ns)">
+		<node pkg="pose_tf_disk_saver" type="pose_tf_disk_saver"
+		    name="pose_tf_disk_saver" clear_params="true"
+		    output="$(optenv ROBOT_OUTPUT screen)"
+		    if="$(arg use_pose_tf_disk_saver)">
+			<param name="work_directory"
+			    value="$(env HOME)/.pose_tf_disk_saver_$(arg ns)"/>
+			<param name="global_frame_id" value="$(arg robot_id)/map/$(arg ns)"/>
+			<param name="base_frame_id" value="$(arg robot_id)/base_footprint"/>
+		</node>
+
+		<arg name="name" default="localization_perfect_match"/>
+
+		<arg name="pm_type" value="localization_perfect_match_No_Gui" unless="$(arg gui)"/>
+		<arg name="pm_type" value="localization_perfect_match" if="$(arg gui)"/>
+
+		<node pkg="localization_perfect_match" type="$(arg pm_type)"
+		    name="$(arg name)" respawn="false" clear_params="true"
+		    output="$(optenv ROBOT_OUTPUT screen)">
+			<remap from="~/base_scan" to="/$(arg robot_id)/$(arg scan_topic)"/>
+			<remap from="~/base_scan_point_cloud2"
+			    to="/$(arg robot_id)/$(arg scan_point_cloud2_topic)"/>
+			<remap from="/initialpose" to="initialpose"/>
+
+			<rosparam command="load" subst_value="true"
+			    file="$(dirname)/localization_perfect_match.yaml"/>
+
+			<param name="get_initial_pose_service_name" value=""
+			    unless="$(arg use_pose_tf_disk_saver)"/>
+			<param name="get_initial_pose_service_name"
+			    value="/$(arg robot_id)/$(arg ns)/pose_tf_disk_saver/get_pose_save_in_disk"
+			    if="$(arg use_pose_tf_disk_saver)"/>
+
+			<rosparam command="delete" param="initial_pose_x"
+			    unless="$(arg use_pose_parameter_server)"/>
+			<rosparam command="delete" param="initial_pose_y"
+			    unless="$(arg use_pose_parameter_server)"/>
+			<rosparam command="delete" param="initial_pose_ori"
+			    unless="$(arg use_pose_parameter_server)"/>
+			<rosparam command="load" subst_value="true"
+			    file="$(arg initial_pose_file)"
+			    if="$(arg use_pose_parameter_server)"/>
+		</node>
+
+		<node pkg="pose_msg_to_odometry_msg" type="pose_msg_to_odometry_msg"
+		    name="pose_msg_to_odometry_msg" respawn="false" clear_params="true"
+		    output="$(optenv ROBOT_OUTPUT screen)">
+			<remap from="pose_in" to="localization_perfect_match/LocalisationPoseResult"/>
+			<remap from="pose_out" to="~/pose_out"/>
+		</node>
+	</group>
+</launch>

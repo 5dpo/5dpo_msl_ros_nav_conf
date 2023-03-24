@@ -1,0 +1,13 @@
+TrajectoryNamespace: '$(arg TrajectoryNamespace)'
+HolomonicMode: true
+GlobalFrameId: '$(arg GlobalFrameId)'
+BaseFrameId: $(arg BaseFrameId)
+tf_prefix: '$(arg robot_id)'
+ZOffSet: 0.1
+default_speed: 0.1
+default_paramf_and_paramb: 0.25
+IdsOffSet: $(arg IdsOffSet)
+arrow_length: 0.3
+arrow_width: 0.05
+pub_tf_period: 1.0
+come_here_service_name: '/$(arg robot_id)/goto'

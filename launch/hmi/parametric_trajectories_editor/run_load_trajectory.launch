@@ -1,0 +1,13 @@
+<launch>
+  <arg name="robot_id" default="$(optenv ROBOT_ID unnamed_robot)"/>
+  <arg name="ns"/>
+  <arg name="file_name" default="$(env PWD)/trajectory_data.yaml" />
+  <arg name="name_sux" default="" />
+
+  <group ns="$(arg robot_id)/$(arg ns)">
+    <rosparam command="load" subst_value="True" file="$(arg file_name)"
+        ns="trajectory_data$(arg name_sux)"/>
+    <param name="trajectory_data$(arg name_sux)/trajectory_data_file_name"
+        value="$(arg file_name)"/>
+  </group>
+</launch>
