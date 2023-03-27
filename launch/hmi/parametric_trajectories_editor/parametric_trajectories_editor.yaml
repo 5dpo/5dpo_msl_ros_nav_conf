@@ -4,7 +4,7 @@ GlobalFrameId: '$(arg GlobalFrameId)'
 BaseFrameId: $(arg BaseFrameId)
 tf_prefix: '$(arg robot_id)'
 ZOffSet: 0.1
-default_speed: 0.1
+default_speed: 0.5
 default_paramf_and_paramb: 0.25
 IdsOffSet: $(arg IdsOffSet)
 arrow_length: 0.3
