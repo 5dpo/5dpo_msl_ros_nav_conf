@@ -1,0 +1,3 @@
+parametric_trajectories_name_spaces_array:
+  $(arg parametric_trajectories_name_spaces_array)
+dock_data_name_spaces_array: $(arg dock_data_name_spaces_array)

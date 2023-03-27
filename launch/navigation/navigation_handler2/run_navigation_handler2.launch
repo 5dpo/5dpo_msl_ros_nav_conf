@@ -1,0 +1,18 @@
+<launch>
+  <arg name="robot_id" default="$(optenv ROBOT_ID unnamed_robot)"/>
+  <arg name="use_maestro" default="false"/>
+
+  <arg name="request_route_service_name_space" value="/request_route_service"
+      if="$(arg use_maestro)"/>
+  <arg name="request_route_service_name_space" value="request_route_service"
+      unless="$(arg use_maestro)"/>
+
+  <group ns="$(arg robot_id)">
+    <node pkg="navigation_handler2" type="navigation_handler2_node"
+          name="navigation_handler2" clear_params="true"
+          output="$(optenv ROBOT_OUTPUT screen)">
+      <rosparam command="load" subst_value="true"
+          file="$(dirname)/navigation_handler2.yaml"/>
+    </node>
+  </group>
+</launch>

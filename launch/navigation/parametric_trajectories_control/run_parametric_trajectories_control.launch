@@ -1,12 +1,14 @@
 <launch>
   <arg name="robot_id" value="$(optenv ROBOT_ID unnamed_robot)"/>
+	<arg name="ns" default="parametric_trajectories_control"/>
 
-  <group ns="$(arg robot_id)">
+  <group ns="$(arg robot_id)/$(arg ns)">
     <node pkg="parametric_trajectories_control"
         type="parametric_trajectories_control"
         name="parametric_trajectories_control" output="screen">
       <rosparam command="load" file="$(dirname)/parametric_trajectories_control.yaml"
           subst_value="true"/>
+      <remap from="cmd_vel" to="/$(arg robot_id)/cmd_vel"/>
     </node>
   </group>
 </launch>

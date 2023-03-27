@@ -1,4 +1,6 @@
 <launch>
+  <arg name="robot_id" default="$(optenv ROBOT_ID unnamed_robot)"/>
+
   <include file="$(dirname)/../../hmi/parametric_trajectories_editor/run_load_trajectory.launch">
     <arg name="ns" value="nn0"/>
     <arg name="file_name" value="$(dirname)/nn0/trajectory_data.yaml"/>
@@ -11,4 +13,20 @@
   </include>
 
   <include file="$(dirname)/../../navigation/parametric_trajectories_control/run_parametric_trajectories_control.launch"/>
+
+  <include file="$(dirname)/../../navigation/graph_server/run_graph_server.launch">
+    <arg name="parametric_trajectories_name_spaces_array"
+        value="['nn0/trajectory_data']"/>
+  </include>
+  
+  <include file="$(dirname)/../../navigation/path_planner/run_path_planner.launch"/>
+  
+  <include file="$(dirname)/../../navigation/navigation_handler2/run_navigation_handler2.launch"/>
+
+	<include file="$(dirname)/../../navigation/symbolic_pose_tracker/run_symbolic_pose_tracker.launch">
+		<arg name="BaseFrameId" value="base_footprint"/>
+		<arg name="global_frame_ids" value="['map/nn0']"/>
+		<arg name="trajectory_name_space_array"
+        value="['/$(arg robot_id)/nn0/trajectory_data']"/>
+	</include>
 </launch>

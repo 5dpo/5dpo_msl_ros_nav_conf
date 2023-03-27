@@ -1,0 +1,11 @@
+Rate: 10
+BaseFrameId: $(arg BaseFrameId)
+GlobalFrameIds: $(arg global_frame_ids)
+tf_prefix: $(arg robot_id)
+#TrajectoryNamespace: "/trajectory_data"
+RobotIdentification: $(arg robot_id)
+HolonomicMode: true
+#MaxAngErrorRad: M_PI_2
+CheckSymbolicPosAtStartUp: false
+waitForTransformTimeOut: 0.0
+TrajectoryNamespaceArray: $(arg trajectory_name_space_array)
