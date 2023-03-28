@@ -42,9 +42,13 @@ your environment variables.
 - [tf](https://wiki.ros.org/tf)
 - [urg_node](https://wiki.ros.org/urg_node)
 - INESC TEC Robotics Navigation Stack
+  - [graph_server](https://gitlab.inesctec.pt/jarvis/graph_planning_handlers_stack/-/tree/main/graph_server)
   - [localization_perfect_match](https://gitlab.inesctec.pt/jarvis/localization_perfect_match_stack)
+  - [navigation_handler2](https://gitlab.inesctec.pt/jarvis/graph_planning_handlers_stack/-/tree/main/navigation_handler2)
   - [parametric_trajectories_control](https://gitlab.inesctec.pt/jarvis/parametric_trajectories_stack/-/tree/main/parametric_trajectories_control)
   - [parametric_trajectories_editor](https://gitlab.inesctec.pt/jarvis/parametric_trajectories_stack/-/tree/main/parametric_trajectories_editor)
+  - [path_planner](https://gitlab.inesctec.pt/jarvis/path_planner)
+  - [symbolic_pose_tracker](https://gitlab.inesctec.pt/jarvis/teastar_global_decision/-/tree/main/symbolic_pose_tracker)
 
 ## Usage
 
@@ -59,74 +63,22 @@ export ROBOT_ID=<id>                # (default: unnamed_robot)
 export ROBOT_CONF=<configuration>   # (default: basic)
 ```
 
-**`basic`**
+**`basic`** (joystick, odometry, rviz)
 
-- Drivers
-  - sdpo_driver_omnijoy
-  - sdpo_msl_ros_driver
-- Human-Machine Interface (HMI)
-  - rviz
-- Localization
-  - sdpo_ros_odom
+**`slam0`** (SLAM Toolbox, joystick)
 
-**`slam0`**
+**`slam1`** (HectorSLAM, joystick)
 
-- Drivers
-  - sdpo_driver_omnijoy
-  - sdpo_msl_ros_driver
-  - static_transform_publisher
-  - urg_node
-- Human-Machine Interface (HMI)
-  - rviz
-- Localization
-  - sdpo_ros_odom
-- Mapping
-  - slam_toolbox
+**`slam2`** (GMapping, joystick)
 
-**`slam1`**
+_How to play ROSbag data and execute a certain SLAM algorithm?_
 
-- Drivers
-  - sdpo_driver_omnijoy
-  - sdpo_msl_ros_driver
-  - static_transform_publisher
-  - urg_node
-- Human-Machine Interface (HMI)
-  - rviz
-- Localization
-  - sdpo_ros_odom
-- Mapping
-  - hector_mapping
-
-**`slam2`**
-
-- Drivers
-  - sdpo_driver_omnijoy
-  - sdpo_msl_ros_driver
-  - static_transform_publisher
-  - urg_node
-- Human-Machine Interface (HMI)
-  - rviz
-- Localization
-  - sdpo_ros_odom
-- Mapping
-  - gmapping
+```sh
+export ROBOT_CONF=<SLAM configuration>
+roslaunch sdpo_msl_ros_nav_conf run_rosbag_play.launch filenames:=$(pwd)/log_slam_2023-03-28-15-05-07_0.bag
+```
   
-**`feup0`**
-
-- Drivers
-  - sdpo_driver_omnijoy
-  - sdpo_msl_ros_driver
-  - static_transform_publisher
-  - urg_node
-- Human-Machine Interface (HMI)
-  - parametric_trajectories_editor (_INESC TEC_)
-  - rviz
-- Localization
-  - sdpo_ros_odom
-  - localization_perfect_match (_INESC TEC_)
-- Mapping
-  - parametric_trajectories_control (_INESC TEC_)
-  - map_server
+**`feup0`** (graph, parametric trajectories, perfect match localization)
 
 
 ### Compilation

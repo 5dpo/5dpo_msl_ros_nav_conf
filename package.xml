@@ -43,13 +43,20 @@
   <!--   <doc_depend>doxygen</doc_depend> -->
   <buildtool_depend>catkin</buildtool_depend>
   <exec_depend>gmapping</exec_depend>
+  <exec_depend>graph_server</exec_depend>
   <exec_depend>hector_mapping</exec_depend>
+  <exec_depend>localization_perfect_match</exec_depend>
   <exec_depend>map_server</exec_depend>
+  <exec_depend>navigation_handler2</exec_depend>
+  <exec_depend>parametric_trajectories_control</exec_depend>
+  <exec_depend>parametric_trajectories_editor</exec_depend>
+  <exec_depend>path_planner</exec_depend>
   <exec_depend>rviz</exec_depend>
   <exec_depend>sdpo_driver_omnijoy</exec_depend>
   <exec_depend>sdpo_msl_ros_driver</exec_depend>
   <exec_depend>sdpo_ros_odom</exec_depend>
   <exec_depend>slam_toolbox</exec_depend>
+  <exec_depend>symbolic_pose_tracker</exec_depend>
   <exec_depend>tf</exec_depend>
   <exec_depend>urg_node</exec_depend>
 
