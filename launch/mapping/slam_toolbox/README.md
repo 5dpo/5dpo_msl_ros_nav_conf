@@ -75,8 +75,8 @@ None.
 sudo apt update
 sudo apt dist-upgrade
 
-# Install ROS package
-sudo apt install ros-noetic-slam-toolbox
+# Install ROS package (rviz plugin to enable interactive mode)
+sudo apt install ros-noetic-slam-toolbox ros-noetic-slam-toolbox-rviz
 ```
 
 ### Launch
