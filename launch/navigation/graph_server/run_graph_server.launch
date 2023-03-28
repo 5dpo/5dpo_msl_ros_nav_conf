@@ -1,0 +1,14 @@
+<launch>
+  <arg name="robot_id" default="$(optenv ROBOT_ID unnamed_robot)"/>
+
+  <arg name="parametric_trajectories_name_spaces_array" default="[]"/>
+  <arg name="dock_data_name_spaces_array" default="[]"/>
+
+  <group ns="$(arg robot_id)">
+    <node pkg="graph_server" type="graph_server_node" name="graph_server"
+        clear_params="true" output="$(optenv ROBOT_OUTPUT screen)">
+      <rosparam command="load" subst_value="true"
+          file="$(dirname)/graph_server.yaml"/>
+    </node>
+  </group>
+</launch>

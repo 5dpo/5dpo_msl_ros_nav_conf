@@ -1,0 +1,18 @@
+<launch>
+  <arg name="robot_id" default="$(optenv ROBOT_ID unnamed_robot)"/>
+  <arg name="ns" default=""/>
+
+  <arg name="global_frame_ids" default="['map/nn0']"/>
+  <arg name="trajectory_name_space_array" default="['/$(arg robot_id)/nn0/trajectory_data']"/>
+  <arg name="BaseFrameId" default="base_footprint"/>
+
+  <group ns="$(arg robot_id)/$(arg ns)">
+    <node pkg="symbolic_pose_tracker" type="symbolic_pose_tracker"
+        name="symbolic_pose_tracker" respawn="false" clear_params="true"
+        output="$(optenv ROBOT_OUTPUT screen)">
+      <remap from="control_trajectories/ActualPath" to="/$(arg robot_id)/parametric_trajectories_control/ActualPath"/>
+      <rosparam command="load" subst_value="true"
+          file="$(dirname)/symbolic_pose_tracker.yaml"/>
+    </node>
+  </group>
+</launch>

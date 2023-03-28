@@ -1,0 +1,13 @@
+request_route_service_name_space: '$(arg request_route_service_name_space)'
+get_symbolic_pose_service_name_space: 'check_symbolic_pose2_multi_frame'
+tf_prefix: '$(arg robot_id)/'
+
+parametric_trajectories_edge_handler:
+  path_sub_name_space: 'parametric_trajectories_control/PathNoStackUp2'
+  status_controller_sub_name_space:
+    'parametric_trajectories_control/control_status'
+  controller_command_pub_name_space:
+    'parametric_trajectories_control/TrajectoryControlCommand'
+
+dock_edge_handler:
+  default_action_name_space: 'docking_charger/dock_action'
