@@ -1,4 +1,8 @@
 <launch>
+  <!-- Save data in a ROSbag file -->
+  <include file="$(dirname)/rosbag_record/run_rosbag_record_all.launch"
+      if="$(optenv ROBOT_LOG_ENABLE false)"/>
+
   <!-- Drivers Abstraction Layer -->
   <include file="$(dirname)/run_drivers.launch"/>
 

@@ -58,9 +58,11 @@ your environment variables.
 
 ```sh
 # Robot id
-export ROBOT_ID=<id>                # (default: unnamed_robot)
+export ROBOT_ID=<id>                  # (default: unnamed_robot)
 # Configuration
-export ROBOT_CONF=<configuration>   # (default: basic)
+export ROBOT_CONF=<configuration>     # (default: basic)
+# Log in a ROSbag file inside the ~/bag_files directory
+export ROBOT_LOG_ENABLE=<true|false>  # (default: false)
 ```
 
 **`basic`** (joystick, odometry, rviz)
