@@ -1,6 +1,6 @@
 # 5dpo_msl_ros_nav_conf
 
-**Version 2.3.0**
+**Version 2.4.0**
 
 This repository implements the launch files required for the 5DPO Navigation
 Stack on the 5DPO MSL three-wheeled omnidirectional robot. The system
